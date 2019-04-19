@@ -1,0 +1,108 @@
+{
+  "type": "array",
+  "properties": [
+    {
+      "key": "cluster",
+      "description": "WORDPRESS properties",
+      "type": "array",
+      "properties": [
+        {
+          "key": "name",
+          "label": "name",
+          "description": "The name of the WORDPRESS service",
+          "type": "string",
+          "default": "Wordpress",
+          "required": false
+        },
+        {
+          "key": "description",
+          "label": "description",
+          "description": "The description of the WORDPRESS service",
+          "type": "string",
+          "default": "",
+          "required": false
+        },
+        {
+          "key": "subnet",
+          "label": "Subnet",
+          "description": "Choose a subnet to join",
+          "type": "string",
+          "default": "",
+          "required": true
+        },
+        {
+          "key": "Mysql",
+          "label": "Mysql",
+          "description": "MySql properties",
+          "type": "array",
+          "properties": [
+            {
+              "key": "cpu",
+              "label": "CPU",
+              "description": "CPUs of each node",
+              "type": "integer",
+              "default": 1,
+              "range": [
+                1,
+                2,
+                4,
+                8,
+                16
+              ],
+              "required": true
+            },
+            {
+              "key": "memory",
+              "label": "Memory",
+              "description": "memory of each node (in MB)",
+              "type": "integer",
+              "default": 2048,
+              "range": [
+                2048,
+                8192,
+                16384,
+                32768,
+                49152
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "key": "Wordpress",
+          "label": "Wordpress",
+          "description": "Wordpress properties",
+          "type": "array",
+          "properties": [
+            {
+              "key": "cpu",
+              "label": "CPU",
+              "description": "CPUs of each node",
+              "type": "integer",
+              "default": 1,
+              "range": [
+                1,
+                2,
+                4
+              ],
+              "required": true
+            },
+            {
+              "key": "memory",
+              "label": "Memory",
+              "description": "memory of each node (in MB)",
+              "type": "integer",
+              "default": 1024,
+              "range": [
+                1024,
+                2048,
+                4096
+              ],
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
