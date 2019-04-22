@@ -1,5 +1,5 @@
 {
-  "name": "json-schema-form",
+  "name": "qingcloud-json-schema-form",
   "version": "0.0.1",
   "description": "Form generator for qingcloud customized json-schema",
   "main": "dist/index.js",
