@@ -1,5 +1,8 @@
 # json-schema-form
 
+[![Build Status](https://travis-ci.org/openpitrix/json-schema-form.svg)](https://travis-ci.org/openpitrix/json-schema-form)
+
+
 > Form generator for qingcloud customized json-schema
 
 ## 1. Build
