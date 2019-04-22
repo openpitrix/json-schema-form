@@ -8,9 +8,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "rollup -c",
-    "precommit": "lint-staged"
+    "precommit": "npm test && lint-staged",
+    "prepare": "npm run build"
   },
   "lint-staged": {
     "*.{js,jsx,md}": [
@@ -26,6 +27,12 @@
   ],
   "author": "sunnyw <iwisunny@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "bail": true,
+    "moduleNameMapper": {
+      "<src>/(.+)$": "<rootDir>/src/$1"
+    }
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -35,6 +42,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "husky": "^1.3.1",
+    "jest": "^24.7.1",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "prop-types": "^15.7.2",

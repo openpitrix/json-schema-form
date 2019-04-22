@@ -8,7 +8,7 @@
 npm run build
 ```
 
-## Example
+## 2. Example
 
 ### React
 

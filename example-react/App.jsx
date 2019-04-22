@@ -1,7 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
 import styled from 'styled-components';
-import _ from 'lodash';
 
 import Form, { Parser } from 'json-schema-form';
 
@@ -61,7 +59,7 @@ export default class App extends React.Component {
           <li
             onClick={() => this.handleClickApp(app)}
             key={app}
-            className={classnames({ active: currentApp === app })}
+            className={currentApp === app ? 'active' : ''}
           >
             {app}
           </li>
@@ -79,7 +77,7 @@ export default class App extends React.Component {
           <a
             href="#"
             key={item}
-            className={classnames({ active: item === mode })}
+            className={item === mode ? 'active' : ''}
             onClick={() => this.handleToggleMode(item)}
           >
             {item}
@@ -102,7 +100,7 @@ export default class App extends React.Component {
         {this.renderToggleModeBtns()}
         {mode === 'json' ? (
           <pre>
-            {_.isObject(curSchema)
+            {typeof curSchema === 'object'
               ? JSON.stringify(curSchema, null, 2)
               : curSchema}
           </pre>
