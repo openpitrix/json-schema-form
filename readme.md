@@ -2,10 +2,20 @@
 
 > Form generator for qingcloud customized json-schema
 
-## 1. Usage
+## 1. Build
 
 ```
-npm run dev
+npm run build
+```
+
+## Example
+
+### React
+
+```bash
+cd example-react
+yarn
+yarn dev
 ```
 
 ## License

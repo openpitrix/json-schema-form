@@ -1,13 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import _ from 'lodash';
-
-// import {
-//   Radio, Input, Select, Slider
-// } from 'components';
-//
-// import CodeMirror from 'components/CodeMirror';
+import * as utils from '../../utils';
 
 export default class Section extends Component {
   static propTypes = {
@@ -39,8 +32,8 @@ export default class Section extends Component {
       required: false,
       type: 'string',
     },
-    onChange: _.noop,
-    onEmpty: _.noop,
+    onChange: utils.noop,
+    onEmpty: utils.noop,
   };
 
   state = {
@@ -64,12 +57,12 @@ export default class Section extends Component {
 
     if (!defaultValue) {
       if (Array.isArray(rest.range)) {
-        return _.isObject(rest.range[0])
-          ? _.get(rest.range[0], 'value')
+        return utils.isObject(rest.range[0])
+          ? rest.range[0].value
           : rest.range[0];
       }
       if (Array.isArray(rest.items)) {
-        return _.get(rest.items[0], 'value');
+        return utils.isObject(rest.items[0]) && rest.items[0].value;
       }
     }
 
@@ -125,7 +118,7 @@ export default class Section extends Component {
     } = this.props.detail;
 
     // hook: render content for empty items
-    if (renderType === 'radio' && _.isEmpty(rest.range)) {
+    if (renderType === 'radio' && utils.isEmpty(rest.range)) {
       return this.props.onEmpty(keyName);
     }
 
@@ -176,7 +169,7 @@ export default class Section extends Component {
           >
             {rest.range.map((item, idx) => {
               let value = '';
-              if (_.isObject(item)) {
+              if (utils.isObject(item)) {
                 value = item.value;
               } else {
                 value = item;

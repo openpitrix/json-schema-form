@@ -18,6 +18,7 @@ export default class SchemaParser {
       schema = JSON.parse(schema);
     }
     this.schema = schema;
+    return this;
   }
 
   valid(schema = this.schema) {
@@ -119,3 +120,5 @@ export default class SchemaParser {
     );
   }
 }
+
+SchemaParser.factory = factory;

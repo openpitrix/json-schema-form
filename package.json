@@ -2,14 +2,14 @@
   "name": "json-schema-form",
   "version": "0.0.1",
   "description": "Form generator for qingcloud customized json-schema",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf build && webpack --config webpack.dev.js --progress",
-    "dev": "webpack-dev-server --config webpack.dev.js --hot-only --inline",
+    "build": "rollup -c",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -20,19 +20,13 @@
   },
   "keywords": [
     "json-schema",
+    "form generator",
     "react",
-    "form"
+    "backbone"
   ],
   "author": "sunnyw <iwisunny@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "backbone": "^1.4.0",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-components": "^4.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
@@ -40,14 +34,14 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-lodash": "^3.3.4",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "prop-types": "^15.7.2",
-    "rimraf": "^2.6.3",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "react": "^16.8.6",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3"
   }
 }

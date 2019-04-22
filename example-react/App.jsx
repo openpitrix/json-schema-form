@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 import _ from 'lodash';
 
-import Form, { SchemaParser } from 'schema-form';
+import Form, { Parser } from 'json-schema-form';
 
 import elk from '../fixtures/elk';
 import zk from '../fixtures/zk';
@@ -25,7 +25,7 @@ export default class App extends React.Component {
       mode: 'json',
     };
 
-    this.parser = new SchemaParser();
+    this.parser = new Parser();
   }
   componentDidMount() {
     const { currentApp } = this.state;
@@ -49,7 +49,7 @@ export default class App extends React.Component {
   };
 
   handleChangeForm = (fieldName, val) => {
-    //
+    console.log(`change: ${fieldName}: current val: ${val}`);
   };
 
   renderNav() {
@@ -90,12 +90,7 @@ export default class App extends React.Component {
   }
 
   renderForm(schema) {
-    this.parser.setSchema(schema);
-    const groups = this.parser.getRenderGroups();
-
-    console.log('groups: ', groups);
-
-    return <Form groups={groups} onChange={this.handleChangeForm} />;
+    return <Form schema={schema} onChange={this.handleChangeForm} />;
   }
 
   renderContent() {

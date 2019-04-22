@@ -1,10 +1,4 @@
-import React from 'react';
-import { render } from 'react-dom';
+import ReactForm from './form/react';
 
-import App from './App';
-
-render(<App />, document.getElementById('app'));
-
-if (module.hot) {
-  module.hot.accept();
-}
+export Parser from './parser';
+export default ReactForm;
